@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"UrlShortener/urlshort"
+	"github.com/lazmoreira/Gophercises/002_UrlShortener/urlshort"
 )
 
 func main() {
@@ -26,9 +26,11 @@ func main() {
   url: https://github.com/gophercises/urlshort/tree/solution
 `
 	yamlHandler, err := urlshort.YAMLHandler([]byte(yaml), mapHandler)
+
 	if err != nil {
 		panic(err)
 	}
+
 	fmt.Println("Starting the server on :8080")
 	http.ListenAndServe(":8080", yamlHandler)
 }
